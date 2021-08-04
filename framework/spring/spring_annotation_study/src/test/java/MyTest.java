@@ -22,12 +22,6 @@ public class MyTest {
     //泛型依赖注入
     @Test
     public void test02() {
-
-//        StudentService studentService = context.getBean("studentService", StudentService.class);
-//        studentService.save();
-//
-//        TeacherService teacherService = context.getBean("teacherService",TeacherService.class);
-//        teacherService.save();
         StudentService studentService = context.getBean("studentService", StudentService.class);
         studentService.save();
 

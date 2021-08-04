@@ -2,13 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--在之前的操作中我们都是使用bean标签的方式向IOC容器中注册bean，下面使用注解的方式
         当使用注解的时候，可以在当前类的上面添加某些注解标识
         @Component：组件，理论上可以在任意的类上进行添加，在扫描的时候都会完成bean的注册
         @Controller：放置在控制层，用来接受用户的请求
-        @Service：放置在业务逻辑层，
+        @Service：放置在业务逻辑层
         @Repository：放置在数据访问层
 
         这四个注解写在类上面的时候都可以完成注册bean的功能,但是这些规定并不是spring识别的标识
@@ -24,7 +27,7 @@
 
         @Scope注解可以声明当前类是单例还是多例
     -->
-<!--    <bean id="personController" class="com.kkyoller.PersonController" ></bean>-->
+    <!--    <bean id="personController" class="com.kkyoller.PersonController" ></bean>-->
 
 
     <!--<context:component-scan base-package="com.kky
@@ -42,12 +45,12 @@
         custom:使用自定义的方式，可以自己定义自己的筛选规则，一般不用
 
         -->
-<!--        <context:exclude-filter type="assignable" expression="com.kkyoller.PersonController"/>-->
-<!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
-        <!--<context:include-filter type="assignable" expression="com.kkyce.PersonService"/>-->
+    <!--        <context:exclude-filter type="assignable" expression="com.kkyoller.PersonController"/>-->
+    <!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+    <!--<context:include-filter type="assignable" expression="com.kkyce.PersonService"/>-->
     <!--</context:component-scan>-->
 
-<!--    <bean id="personController" class="com.kkyoller.PersonController" autowire=""></bean>-->
+    <!--    <bean id="personController" class="com.kkyoller.PersonController" autowire=""></bean>-->
 
     <context:component-scan base-package="com.kky">
     </context:component-scan>
