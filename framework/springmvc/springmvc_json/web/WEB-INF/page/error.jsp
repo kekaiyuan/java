@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-我自己的出错页面：
+<h1>出错了！</h1>
 错误信息是：${exce}
 </body>
 </html>

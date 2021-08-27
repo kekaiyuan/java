@@ -4,6 +4,7 @@ import com.kky.bean.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -33,15 +34,13 @@ public class JsonController {
     }
 
     @RequestMapping("/testRequestBody")
-    public String testRequestBody(@RequestBody String body){
+    public void testRequestBody(@RequestBody String body){
         System.out.println(body);
-        return "success";
     }
 
     @RequestMapping("/testRequestJson")
-    public String testRequestJson(@RequestBody  User user){
+    public void testRequestJson(@RequestBody String user){
         System.out.println(user);
-        return "success";
     }
 
 }

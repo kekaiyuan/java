@@ -11,21 +11,24 @@
         <property name="suffix" value=".jsp"></property>
         <property name="prefix" value="/WEB-INF/page/"></property>
     </bean>
-    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
-        <!--<property name="defaultEncoding" value="UTF-8"></property>-->
-        <!--<property name="maxUploadSize" value="1024000"></property>-->
-    <!--</bean>-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="maxUploadSize" value="1024000"></property>
+    </bean>
 
-    <!--<mvc:interceptors>-->
-        <!--<bean class="com.kky.interceptor.MyInterceptor"></bean>-->
-        <!--<bean class="com.kky.interceptor.SecondInterceptor"></bean>-->
-    <!--</mvc:interceptors>-->
-    <!--<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">-->
-        <!--<property name="basename" value="login"></property>-->
-    <!--</bean>-->
-<!--&lt;!&ndash;    <bean id="localeResolver" class="com.kkyaleResolver"></bean>&ndash;&gt;-->
-    <!--<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>-->
-    <!--<mvc:interceptors>-->
-        <!--<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>-->
-    <!--</mvc:interceptors>-->
+    <mvc:interceptors>
+        <bean class="com.kky.interceptor.MyInterceptor"></bean>
+        <bean class="com.kky.interceptor.SecondInterceptor"></bean>
+    </mvc:interceptors>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="login"></property>
+    </bean>
+
+
+    <!--<bean id="localeResolver" class="com.kky.MyLocaleResolver"></bean>-->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
+    </mvc:interceptors>
 </beans>
