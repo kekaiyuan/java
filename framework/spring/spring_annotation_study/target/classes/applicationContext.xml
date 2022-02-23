@@ -55,9 +55,4 @@
     <context:component-scan base-package="com.kky">
     </context:component-scan>
 
-    <context:property-placeholder location="classpath:dbconfig.properties"></context:property-placeholder>
-    <bean id="person" class="com.kky.bean.Person">
-        <property name="username" value="${username}"></property>
-    </bean>
-
 </beans>
