@@ -1,7 +1,6 @@
 package com.kky;
 
 import java.util.Arrays;
-import java.util.concurrent.CountDownLatch;
 
 public class SortUtil {
 
@@ -14,16 +13,58 @@ public class SortUtil {
         for (int i = 1; i < length; i++) {
             boolean flag = true;
             for (int j = 0; j < length - i; j++) {
-                if (array[j] < array[j + 1]) {
+                // 升序，将 < 改成 > 即可实现降序
+                if (array[j] > array[j + 1]) {
                     swap(array, j, j + 1);
                     if (flag) {
                         flag = false;
                     }
                 }
             }
+            // 如果某次遍历中，没有发生过元素交换，说明排序已完成，直接退出
             if (flag) {
                 break;
             }
+        }
+        return array;
+    }
+
+    /**
+     * 选择排序
+     */
+    public static int[] selectSort(int[] sourceArray) {
+        int length = sourceArray.length;
+        int[] array = Arrays.copyOf(sourceArray, length);
+        for (int i = 0; i < length; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < length; j++) {
+                if (array[minIndex] > array[j]) {
+                    minIndex = j;
+                }
+            }
+            if (i != minIndex) {
+                swap(array, i, minIndex);
+            }
+        }
+        return array;
+    }
+
+    /**
+     * 插入排序
+     */
+    public static int[] insertSort(int[] sourceArray) {
+        int length = sourceArray.length;
+        int[] array = Arrays.copyOf(sourceArray, length);
+        for (int i = 1; i < length; i++) {
+            int temp = array[i];
+            int j = i - 1;
+            while (j >= 0
+                    // 前半段已升序，如果当前元素比前一个大，那么它一定比之前的任意一个元素大，打断循环，直接进行下一个元素的比较
+                    && array[j] > temp) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = temp;
         }
         return array;
     }
@@ -83,6 +124,9 @@ public class SortUtil {
         }
     }
 
+    /**
+     * 快速排序
+     */
     public static int[] quickSort(int[] sourceArray) {
         int length = sourceArray.length;
         int[] array = Arrays.copyOf(sourceArray, length);
@@ -116,6 +160,9 @@ public class SortUtil {
         quickSort(array, i + 1, right);
     }
 
+    /**
+     * 堆排序
+     */
     public static int[] heapSort(int[] sourceArray) {
         int length = sourceArray.length;
         int[] array = Arrays.copyOf(sourceArray, length);
@@ -152,22 +199,20 @@ public class SortUtil {
         }
     }
 
-    public static int[] Sort(int[] sourceArray) {
-        int length = sourceArray.length;
-        int[] array = Arrays.copyOf(sourceArray, length);
-        return array;
-    }
-
     /**
      * 交换数组中的两个元素
      */
-    public static void swap(int[] array, int i, int j) {
+    private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
 
-    public static void main(String[] args) {
-
+    private static void print(int[] array) {
+        for (int i : array) {
+            System.out.printf(i + " ");
+        }
+        System.out.println();
     }
+
 }
